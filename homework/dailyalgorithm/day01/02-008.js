@@ -3,3 +3,4 @@ let students = {
 }
 
 console.log(students.nam)
+//=== console.log(students["nam"])

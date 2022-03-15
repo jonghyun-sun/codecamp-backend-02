@@ -5,10 +5,14 @@
 function solution(front, back) {
     let a=[]
     for(i=0; i<3 ; i++){
-
-        a=back.find (front[i])
+        for(j=0;j<3;j++){
+            if(front[i]===back[j]){
+                a.push(front[i])
+            }
+        }
 
     }
+    return a;
   
 }
 
