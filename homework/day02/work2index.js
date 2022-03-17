@@ -23,14 +23,14 @@ export function checkValidationPhone(phoneNum){
     }
 }
 
-export function getwelcomeTemplate({email, identnum, phone, site}){
+export function getwelcomeTemplate({email, identNum, phone, site}){
     return `
         <html>
             <body>
                 <h1>선종현님 가입을 환영합니다!!!</h1>
                 <hr />
                 <div>이메일: ${email}</div>
-                <div>주민번호: ${identnum}살</div>
+                <div>주민번호: ${identNum}</div>
                 <div>핸드폰 번호: ${phone}</div>
                 <div>좋아하는 사이트: ${site}</div>
             </body>
