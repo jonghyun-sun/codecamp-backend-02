@@ -2,7 +2,7 @@ function makeOdd(num){
 	let str = '';
     let a = 0
     for( i = 1; num > i; i++){
-        if( i % 2 != 0 ){
+        if( i % 2 !== 0 ){
             a = a + i + str
         }
         
