@@ -9,7 +9,7 @@ const app = express()
 app.use(express.json())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJSDoc(options)));
 
-app.get('/user', (req,res) =>{
+app.get('/users', (req,res) =>{
     //데이터 조회
     const result=[
         { email:"qwe@@@gmail.com", name:"철수", phone:"01012345678", personal:"220110-222212", prefer:"www.naver.com"},
@@ -42,4 +42,4 @@ app.get('/user', (req,res) =>{
 })
 
 
-app.listen(3001)
+app.listen(3000)
