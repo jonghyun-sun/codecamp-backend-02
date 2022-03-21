@@ -1,3 +1,8 @@
+import { checkValidationPhone, getToken, sendTokenToSMS } from './phone.js'
+
+import dotenv from 'dotenv'
+dotenv.config() //env 사용위한 명령어 
+
 import express from "express"
 import swaggerUi from 'swagger-ui-express'
 import swaggerJSDoc from 'swagger-jsdoc'
@@ -43,6 +48,21 @@ app.get('/users', (req,res) =>{
 
     res.send(result)
 })
+
+app.post('/tokens/phone', (req, res) => {
+    const myphone = req.body.aaa
+  
+    // 1. 휴대폰번호 자릿수 맞는지 확인하기
+    const isValid = checkValidationPhone(myphone)
+    if(isValid){
+        // 2. 핸드폰 토큰 6자리 만들기
+        const mytoken = getToken()
+  
+        // 3. 핸드폰번호에 토큰 전송하기
+        sendTokenToSMS(myphone, mytoken)
+        res.send("인증완료!!")
+    }
+  })
 
 
 app.listen(3000)
