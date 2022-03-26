@@ -1,6 +1,6 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose"
 
-const boardSchema = new mongoose.schema({
+const boardSchema = new mongoose.Schema({
     writer:String,
     title:String,
     contents:String

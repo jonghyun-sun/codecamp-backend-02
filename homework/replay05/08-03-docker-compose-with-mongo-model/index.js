@@ -8,8 +8,8 @@ import express from 'express'
 import swaggerUi from 'swagger-ui-express'
 import swaggerJsdoc from 'swagger-jsdoc'
 import { options } from './swagger/config.js'
-import{Board} from './models/board.model.js'
 import mongoose from 'mongoose'
+import {Board} from './models/board.model.js'
 
 
 import dotenv from 'dotenv'
@@ -38,9 +38,11 @@ app.post('/boards', async function(req, res) {
   console.log(req.body)
 
   const board = new Board({
-    writer:"철수",title:"제목입니다",contents:"내용입니다@"
+    writer:"철수",title:"제목입니다",contents:"내용입니다"
   })
-  await board.save()//board를 db에 저장해줘,응답 기다려야하니 await
+  await board.save()//몽도db로 가서 저장
+
+  
   
   // 2. 저장결과 알려주기!!
   res.send('등록에 성공하였습니다!!')

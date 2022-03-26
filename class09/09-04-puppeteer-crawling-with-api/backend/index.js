@@ -8,7 +8,8 @@ import express from 'express'
 import swaggerUi from 'swagger-ui-express'
 import swaggerJsdoc from 'swagger-jsdoc'
 import { options } from './swagger/config.js'
-// import mongoose from 'mongoose'
+import mongoose from 'mongoose'
+import{Stock} from './models/stock.model.js'
 
 import dotenv from 'dotenv'
 dotenv.config() //env 사용위한 명령어 
@@ -74,6 +75,12 @@ app.post('/users',(req,res) => {
   
 })
 
+app.get("/stocks",async (req,res) =>{
+  const stocks = await Stock.find()
+  
+  res.send(stocks)
+})
+
 // app.get('/boards/:id', (req, res) => {
 //     console.log(req)
 //   res.send('Hello World!')
@@ -89,7 +96,7 @@ app.post('/users',(req,res) => {
 // res.send('Hello World!')
 // })
 
-mongoose.connect("mongodb://4500:4500/codecamp")
+mongoose.connect("mongodb://my-database:27017/codecamp")
 
 //backend api 서버 오픈
 app.listen(4500, () => {
