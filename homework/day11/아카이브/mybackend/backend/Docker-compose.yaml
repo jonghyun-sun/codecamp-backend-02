@@ -1,0 +1,29 @@
+version: "3.3"
+
+services:
+  my_backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./index.js:/myfolder/index.js
+      - ./phone.js:/myfolder/phone.js
+      - ./scrapping.js:/myfolder/scrapping.js
+      - ./changepi.js:/myfolder/changepi.js
+      - ./signup.js:/myfolder/signup.js
+      - ./utils.js:/myfolder/utils.js
+      - ./users.js:/myfolder/users.js
+      - ./coffee.js:/myfolder/coffee.js
+      - ./swagger/config.js:/myfolder/swagger/config.js
+      - ./swagger/starbucks.swagger.js:/myfolder/swagger/starbucks.swagger.js
+      - ./swagger/tokens.swagger.js:/myfolder/swagger/tokens.swagger.js
+      - ./swagger/users.swagger.js:/myfolder/swagger/users.swagger.js
+      - ./controllers/services/check.services.js:/myfolder/controllers/services/check.services.js
+      - ./controllers/token.request.controller.js:/myfolder/controllers/token.request.controller.js
+
+  my_database:
+    image: mongo:latest
+    ports:
+      - 27017:27017

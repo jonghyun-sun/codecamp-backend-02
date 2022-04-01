@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>메뉴,kcal</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function zzz(){
+            //메뉴, 칼로리 가지고 오기
+            axios.get("http://localhost:3000/starbucks",{
+            }).then((res) => {
+                document.getElementById("menuName").innerText = result[0].name
+            })
+
+        }
+    </script>
+</head>
+<body>
+    <button onclick = "zzz()">메뉴열기</button>
+    <div id = "menuName">메뉴이름</div>
+    <div id = "whatkcal">kcal</div>
+    
+</body>
+</html>
