@@ -3,13 +3,11 @@ import { ApolloServer, gql } from "apollo-server";
 // The GraphQL schema
 const mytypeDefs = gql`
   type Query {
-    "A simple type for getting started!"
     hello: Int
     fetchBoardsCount: Int!
   }
 `; //그래프 큐엘 타입 => 쿼리에서 hello 요청하면 string형태로 나올거임 //플레이그라운드 독스 처음 눌렀을때 나오는거 //스웨거랑 같은 거임
 
-// A map of functions which return data for the schema.
 const myresolvers = {
   Query: {
     hello: () => 10, //리턴이란 글자 생략된거임 =>hello 요청하면 "world"나올거임
